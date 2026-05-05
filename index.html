@@ -6,84 +6,244 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>מערכת הבחינות בעל פה - קורס מערכות הפעלה</title>
     <meta name="description" content="פורטל למידע ושיבוץ למערכת הבחינות בעל פה בקורס מערכות הפעלה.">
+
+    <!-- פונטים -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="styles.css">
+
+    <style>
+        /* משתני צבע ועיצוב */
+        :root {
+            --bg-body: #0f172a;
+            /* רקע כהה עמוק */
+            --bg-container: #1e293b;
+            /* כרטיסייה מרכזית */
+            --bg-card: #0f172a;
+            /* רקע פנימי לכרטיסיות */
+            --text-main: #f8fafc;
+            /* טקסט לבן/אפור בהיר */
+            --text-muted: #94a3b8;
+            /* טקסט משני */
+            --primary: #3b82f6;
+            /* כחול לכפתורים */
+            --primary-hover: #2563eb;
+            --accent: #f8fafc;
+            /* כתום/צהוב לכותרות שלבים */
+            --border: #334155;
+            /* גבולות עדינים */
+        }
+
+        /* איפוס בסיסי */
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: 'Inter', system-ui, -apple-system, sans-serif;
+            background-color: var(--bg-body);
+            color: var(--text-main);
+            line-height: 1.6;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            padding: 2rem 1rem;
+        }
+
+        /* המכל הראשי */
+        .container {
+            background-color: var(--bg-container);
+            max-width: 1000px;
+            width: 100%;
+            border-radius: 16px;
+            padding: 2.5rem 2rem;
+            box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.5), 0 8px 10px -6px rgba(0, 0, 0, 0.3);
+            border: 1px solid var(--border);
+        }
+
+        /* אזור כותרת */
+        .header {
+            text-align: center;
+            margin-bottom: 2.5rem;
+            padding-bottom: 1.5rem;
+            border-bottom: 1px solid var(--border);
+        }
+
+        .header h1 {
+            font-size: 2rem;
+            color: #ffffff;
+            margin-bottom: 0.5rem;
+            font-weight: 700;
+            letter-spacing: -0.5px;
+        }
+
+        .header p {
+            color: var(--text-muted);
+            font-size: 1.05rem;
+        }
+
+        /* כותרות שלבים */
+        .step-title {
+            color: var(--accent);
+            font-size: 1.25rem;
+            font-weight: 600;
+            text-align: center;
+            margin-bottom: 1rem;
+        }
+
+        /* אזור הוידאו */
+        .video-wrapper {
+            margin-bottom: 2.5rem;
+        }
+
+        #video-placeholder {
+            width: 100%;
+            aspect-ratio: 16 / 9;
+            background-color: #000;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.4);
+            border: 1px solid var(--border);
+        }
+
+        /* כרטיסיות שלבים */
+        .step-card {
+            background-color: var(--bg-card);
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            padding: 1.5rem;
+            margin-bottom: 1.5rem;
+            text-align: center;
+            transition: transform 0.2s ease;
+        }
+
+        .step-card:last-child {
+            margin-bottom: 0;
+        }
+
+        .step-desc {
+            font-size: 1.1rem;
+            font-weight: 500;
+            margin-bottom: 1.25rem;
+        }
+
+        /* כפתורים */
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.5rem;
+            background-color: var(--primary);
+            color: #ffffff;
+            text-decoration: none;
+            padding: 0.75rem 1.5rem;
+            border-radius: 8px;
+            font-weight: 600;
+            font-size: 1rem;
+            transition: all 0.2s ease;
+            box-shadow: 0 4px 6px -1px rgba(59, 130, 246, 0.3);
+        }
+
+        .btn:hover {
+            background-color: var(--primary-hover);
+            transform: translateY(-2px);
+            box-shadow: 0 6px 10px -1px rgba(59, 130, 246, 0.4);
+        }
+
+        .btn svg {
+            flex-shrink: 0;
+        }
+
+        /* תיבת מידע (Notice) */
+        .info-box {
+            display: flex;
+            align-items: flex-start;
+            gap: 1rem;
+            background: rgba(51, 65, 85, 0.4);
+            border: 1px solid var(--border);
+            border-radius: 8px;
+            padding: 1rem 1.25rem;
+            text-align: right;
+            color: var(--text-muted);
+            font-size: 0.95rem;
+            line-height: 1.5;
+        }
+
+        .info-box svg {
+            color: var(--primary);
+            margin-top: 0.1rem;
+        }
+
+        /* התאמה למסכים קטנים */
+        @media (max-width: 600px) {
+            .container {
+                padding: 1.5rem 1rem;
+            }
+
+            .header h1 {
+                font-size: 1.5rem;
+            }
+        }
+    </style>
 </head>
 
 <body>
     <div class="container" id="main-container">
 
+        <!-- כותרת ראשית -->
         <header class="header">
-            <h1>מערכת הבדיקה - מערכות הפעלה</h1>
-            <p>כאן תוכלו למצוא הסבר על מערכת הבחינות בעל פה. שימו לב: בכדי להיבחן, עליכם להשתבץ דרך הלינק למטה.</p>
+            <h1>מערכת VivaCodex - מערכות הפעלה</h1>
+            <p>כאן תוכלו למצוא הסבר על מערכת הבדיקה.<br>שימו לב: בכדי להיבדק, עליכם להשתבץ דרך הלינק למטה.</p>
         </header>
 
-
-        <!-- Step 1 label + Video (standalone) -->
-        <p
-            style="color:#ed8b29; font-size:1.35rem; font-weight:500; text-align:center; width:100%; margin-top:2rem; margin-bottom:0.3rem;">
-            שלב 1: צפו בסרטון ההסבר</p>
-        <div class="video-slot" id="video-placeholder" aria-label="Video Placeholder">
-            <div class="video-icon">
-                <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none"
-                    stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                    <polygon points="5 3 19 12 5 21 5 3"></polygon>
-                </svg>
+        <!-- שלב 1: וידאו -->
+        <div class="video-wrapper">
+            <h2 class="step-title">שלב 1: צפו בסרטון ההסבר</h2>
+            <div id="video-placeholder" aria-label="Video Placeholder">
+                <!-- הסרטון יוזרק לכאן דרך JavaScript -->
             </div>
-            <div class="video-text">סרטון הסבר יעלה לכאן בהמשך</div>
-            <div class="video-text-sub">המקום שמור לסרטון הדגמה מצוות הקורס</div>
         </div>
 
-        <!-- Steps -->
-        <div class="actions" id="action-container" style="margin-top: 2rem;">
-            <div id="step-1-container" style="display:flex; flex-direction:column; align-items:center; gap:0.8rem;">
-                <p style="color:#f1f5f9; font-size:1.1rem; text-align:center; margin-bottom:0.2rem; font-weight:500;">
-                    שלב 2: מלאו את שאלון ההכנה לבחינה
-                </p>
-                <div style="display:flex; gap:1rem; flex-wrap:wrap; justify-content:center; width:100%;">
-                    <a id="form-link"
-                        href="https://docs.google.com/forms/d/e/1FAIpQLScqNBi3GOOrFR-5A0wvA2tH4fS-fspmDX409Q-FJos3djLIrA/viewform?usp=dialog"
-                        target="_blank" rel="noopener noreferrer" class="btn btn-primary form-link"
-                        style="background-color:#3b82f6; flex:1; min-width:140px;">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none"
-                            stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                            <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path>
-                            <polyline points="14 2 14 8 20 8"></polyline>
-                            <line x1="16" y1="13" x2="8" y2="13"></line>
-                            <line x1="16" y1="17" x2="8" y2="17"></line>
-                            <polyline points="10 9 9 9 8 9"></polyline>
-                        </svg>
-                        <span>קבוצת AI</span>
-                    </a>
-                </div>
-            </div>
+        <!-- שלב 2: שאלון -->
+        <div class="step-card" id="step-1-container">
+            <p class="step-desc">שלב 2: מלאו את השאלון</p>
+            <a id="form-link"
+                href="https://docs.google.com/forms/d/e/1FAIpQLScqNBi3GOOrFR-5A0wvA2tH4fS-fspmDX409Q-FJos3djLIrA/viewform?usp=dialog"
+                target="_blank" rel="noopener noreferrer" class="btn">
+                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none"
+                    stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path>
+                    <polyline points="14 2 14 8 20 8"></polyline>
+                    <line x1="16" y1="13" x2="8" y2="13"></line>
+                    <line x1="16" y1="17" x2="8" y2="17"></line>
+                    <polyline points="10 9 9 9 8 9"></polyline>
+                </svg>
+                <span>שאלון</span>
+            </a>
+        </div>
 
-            <div id="step-2-container"
-                style="display:flex; flex-direction:column; align-items:center; gap:0.8rem; margin-top:1.5rem;">
-                <p
-                    style="color:#f1f5f9; font-size:1.1rem; text-align:center; margin-bottom:0.2rem; padding-top:1.5rem; border-top:1px solid #334155; width:100%; font-weight:500;">
-                    שלב 3: קביעת מועד בחינה
-                </p>
-                <div
-                    style="display:flex; align-items:center; gap:0.75rem; color:#94a3b8; font-size:0.95rem; background:rgba(51,65,85,0.4); border:1px solid #334155; border-radius:10px; padding:0.9rem 1.2rem; max-width:90%; text-align:center; line-height:1.6;">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none"
-                        stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
-                        style="flex-shrink:0; opacity:0.6;">
-                        <rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect>
-                        <line x1="16" y1="2" x2="16" y2="6"></line>
-                        <line x1="8" y1="2" x2="8" y2="6"></line>
-                        <line x1="3" y1="10" x2="21" y2="10"></line>
-                    </svg>
-                    <span>לאחר מילוי השאלון תקבלו בתגובה את הקישור לקביעת מועד הבחינה ביומן. נא להשתבץ פעם אחת
-                        בלבד.</span>
-                </div>
+        <!-- שלב 3: שיבוץ ביומן -->
+        <div class="step-card" id="step-2-container">
+            <p class="step-desc" style="color: var(--text-main);">שלב 3: קביעת מועד</p>
+            <div class="info-box">
+                <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none"
+                    stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect>
+                    <line x1="16" y1="2" x2="16" y2="6"></line>
+                    <line x1="8" y1="2" x2="8" y2="6"></line>
+                    <line x1="3" y1="10" x2="21" y2="10"></line>
+                </svg>
+                <span>לאחר מילוי השאלון תקבלו בתגובה את הקישור לקביעת מועד הבחינה ביומן. <strong>נא להשתבץ פעם אחת
+                        בלבד.</strong></span>
             </div>
         </div>
 
     </div>
 
+    <!-- סקריפט להטמעת הוידאו -->
     <script>
         // ── YouTube video ID ──
         const YOUTUBE_VIDEO_ID = 'mAcwInCKrI8';
@@ -91,12 +251,6 @@
         // ── Embed YouTube video ──
         const videoSlot = document.getElementById('video-placeholder');
         if (YOUTUBE_VIDEO_ID) {
-            videoSlot.className = '';
-            videoSlot.style.width = '100%';
-            videoSlot.style.aspectRatio = '16 / 9';
-            videoSlot.style.borderRadius = '16px';
-            videoSlot.style.overflow = 'hidden';
-            videoSlot.style.marginTop = '2rem';
             videoSlot.innerHTML = `
                 <iframe width="100%" height="100%"
                     src="https://www.youtube.com/embed/${YOUTUBE_VIDEO_ID}"
@@ -104,6 +258,13 @@
                     allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
                     allowfullscreen>
                 </iframe>`;
+        } else {
+            // הודעת גיבוי למקרה שאין מזהה וידאו
+            videoSlot.style.display = 'flex';
+            videoSlot.style.alignItems = 'center';
+            videoSlot.style.justifyContent = 'center';
+            videoSlot.style.color = '#94a3b8';
+            videoSlot.innerHTML = '<p>סרטון ההסבר יעלה בקרוב...</p>';
         }
     </script>
 </body>
