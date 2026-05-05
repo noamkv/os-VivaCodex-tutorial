@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="he" dir="rtl">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>קבוצה ב - מערכת הבחינות בעל פה - מערכות הפעלה</title>
+    <meta name="description" content="פורטל למידע ושיבוץ למערכת הבחינות בעל פה בקורס מערכות הפעלה - קבוצה ב.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../styles.css">
+</head>
+
+<body>
+    <div class="container" id="main-container">
+
+        <header class="header">
+            <h1>מערכת הבחינות - מערכות הפעלה</h1>
+            <p>כאן תוכלו למצוא הסבר על מערכת הבחינות בעל פה. שימו לב: בכדי להיבחן, עליכם להשתבץ דרך הלינק למטה.</p>
+        </header>
+
+        <!-- Video Slot -->
+        <div class="video-slot" id="video-placeholder" aria-label="Video Placeholder">
+            <div class="video-icon">
+                <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none"
+                    stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <polygon points="5 3 19 12 5 21 5 3"></polygon>
+                </svg>
+            </div>
+            <div class="video-text">סרטון הסבר יעלה לכאן בהמשך</div>
+            <div class="video-text-sub">המקום שמור לסרטון הדגמה מצוות הקורס</div>
+        </div>
+
+        <!-- Call to Actions -->
+        <div class="actions" id="action-container">
+            <div id="step-1-container" style="display: flex; flex-direction: column; align-items: center; gap: 0.8rem;">
+                <p
+                    style="color: #f1f5f9; font-size: 1.1rem; text-align: center; margin-bottom: 0.2rem; font-weight: 500;">
+                    שלב 1: מלאו את שאלון ההכנה לבחינה
+                </p>
+                <div style="display: flex; gap: 1rem; flex-wrap: wrap; justify-content: center; width: 100%;">
+                    <a href="https://docs.google.com/forms/d/e/1FAIpQLScqNBi3GOOrFR-5A0wvA2tH4fS-fspmDX409Q-FJos3djLIrA/viewform?usp=dialog"
+                        target="_blank" rel="noopener noreferrer" class="btn btn-primary form-link"
+                        style="background-color: #3b82f6; flex: 1; min-width: 140px;">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none"
+                            stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path>
+                            <polyline points="14 2 14 8 20 8"></polyline>
+                            <line x1="16" y1="13" x2="8" y2="13"></line>
+                            <line x1="16" y1="17" x2="8" y2="17"></line>
+                            <polyline points="10 9 9 9 8 9"></polyline>
+                        </svg>
+                        קבוצת AI
+                    </a>
+
+                </div>
+            </div>
+
+            <div id="step-2-container"
+                style="display: flex; flex-direction: column; align-items: center; gap: 0.8rem; margin-top: 1.5rem;">
+                <p
+                    style="color: #f1f5f9; font-size: 1.1rem; text-align: center; margin-bottom: 0.2rem; padding-top: 1.5rem; border-top: 1px solid #334155; width: 100%; font-weight: 500;">
+                    שלב 2: קביעת מועד בחינה
+                </p>
+                <div
+                    style="display: flex; align-items: center; gap: 0.75rem; color: #94a3b8; font-size: 0.95rem; background: rgba(51,65,85,0.4); border: 1px solid #334155; border-radius: 10px; padding: 0.9rem 1.2rem; max-width: 90%; text-align: center; line-height: 1.6;">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none"
+                        stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                        style="flex-shrink: 0; opacity: 0.6;">
+                        <rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect>
+                        <line x1="16" y1="2" x2="16" y2="6"></line>
+                        <line x1="8" y1="2" x2="8" y2="6"></line>
+                        <line x1="3" y1="10" x2="21" y2="10"></line>
+                    </svg>
+                    <span>לאחר מילוי השאלון תקבלו בתגובה את הקישור לקביעת מועד הבחינה ביומן. נא להשתבץ פעם אחת
+                        בלבד.</span>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+    <script>
+        // ברגע שיהיה סרטון יוטיוב מוכן, פשוט תעתיק את ה-ID שלו לכאן
+        // לדוגמה, אם הקישור הוא https://www.youtube.com/watch?v=dQw4w9WgXcQ אז ה-ID הוא dQw4w9WgXcQ
+        const YOUTUBE_VIDEO_ID = 'mAcwInCKrI8';
+
+        const videoSlot = document.getElementById('video-placeholder');
+
+        if (YOUTUBE_VIDEO_ID) {
+            videoSlot.className = '';
+            videoSlot.style.width = '100%';
+            videoSlot.style.aspectRatio = '16 / 9';
+            videoSlot.style.borderRadius = '16px';
+            videoSlot.style.overflow = 'hidden';
+
+            videoSlot.innerHTML = `
+                <iframe 
+                    width="100%" 
+                    height="100%" 
+                    src="https://www.youtube.com/embed/${YOUTUBE_VIDEO_ID}" 
+                    title="YouTube video player" 
+                    frameborder="0" 
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+                    allowfullscreen>
+                </iframe>
+            `;
+        } else {
+            videoSlot.addEventListener('click', function () {
+                console.log('Video area clicked! Waiting for video integration...');
+                alert('כאן יופיע בהמשך סרטון הסבר על מערכת הבחינות!');
+            });
+        }
+    </script>
+</body>
+
+</html>
